@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:ya/events/event-list-page.dart';
 
-class TabsMain extends StatelessWidget {
-  TabsMain({Key key}) : super(key: key);
+class TabsPage extends StatelessWidget {
+  TabsPage({Key key}) : super(key: key);
 
   Widget build(BuildContext context) {
     return DefaultTabController(

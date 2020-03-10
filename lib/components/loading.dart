@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:loading/indicator/ball_scale_indicator.dart';
 import 'package:loading/loading.dart';
 
-class YaLoading extends StatelessWidget {
+class WLoading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(

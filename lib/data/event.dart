@@ -1,9 +1,6 @@
-import 'package:json_annotation/json_annotation.dart';
-import 'package:ya/components/ya-list.dart';
+import 'package:firebase/firestore.dart';
+import 'package:ya/components/list.dart';
 
-part 'event.g.dart';
-
-@JsonSerializable()
 class Event {
   Event(this.title, this.details, this.date);
 
@@ -11,12 +8,19 @@ class Event {
   final String details;
   final DateTime date;
 
-  factory Event.fromJson(Map<String, dynamic> json) => _$EventFromJson(json);
-  Map<String, dynamic> toJson() => _$EventToJson(this);
+  factory Event.fromJson(DocumentSnapshot doc) => _$EventFromJson(doc);
 }
 
-List<Event> getEventList(Map<String, dynamic> json) {
-  var list = json['results'] as List;
+Event _$EventFromJson(DocumentSnapshot doc) {
+  return Event(
+    doc.get('title') as String,
+    doc.get('description') as String,
+    doc.get('date') as DateTime,
+  );
+}
+
+List<Event> getEventList(List<DocumentSnapshot> docs) {
+  var list = docs;
   return list.map((e) => Event.fromJson(e)).toList();
 }
 

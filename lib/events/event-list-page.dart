@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
-import 'package:ya/components/loader.dart';
-import 'package:ya/components/ya-list.dart';
+import 'package:ya/components/list.dart';
+import 'package:ya/components/loading.dart';
 import 'package:ya/data/event.dart';
 import 'package:ya/events/event-details-page.dart';
 
-import 'dart:developer' as developer;
+//import 'dart:developer' as developer;
 
 import 'package:ya/services/event-service.dart';
 
@@ -25,12 +25,14 @@ class _EventListPageState extends State<EventListPage> {
   var isLoading = true;
 
   void _getEventList() {
-    EventService.getEventList().then((json) {
-      setState(() {
+
+    EventService.getEventList().then((value) {
+       setState(() {
         isLoading = false;
-        eventList = _getEventListTileArgs(json);
+        eventList = _getEventListTileArgs(value);
       });
     });
+
   }
 
   initState() {
@@ -44,8 +46,8 @@ class _EventListPageState extends State<EventListPage> {
 
   @override
   Widget build(BuildContext context) {
-    return isLoading? YaLoading() :
-    YaListView(
+    return isLoading? WLoading() :
+    WListView(
       listViewArgs: ListViewArgs(eventList),
       handleTap:  (args) => _handleTap(context, args),
     );

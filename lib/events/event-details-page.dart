@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+//import 'dart:developer' as developer;
+
 class EventDetailsPage extends StatelessWidget {
 
   @override
@@ -9,12 +11,15 @@ class EventDetailsPage extends StatelessWidget {
     final EventDetailsArgs args = ModalRoute.of(context).settings.arguments;
     return Scaffold(
       appBar: AppBar(title: Text(args.title),),
-      body: Column(
-        children: <Widget>[
-          Text(args.details),
-          Text(args.date!=null?args.date:'null?')
-        ],
-      ),
+      body: Container(
+        padding: EdgeInsets.all(10),
+        child:  Column(
+          children: <Widget>[
+            Text(args.details),
+            Text(args.date),
+          ],
+        ),
+      )
     );
   }
 }

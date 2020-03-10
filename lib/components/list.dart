@@ -3,8 +3,8 @@ import 'package:flutter/widgets.dart';
 
 //import 'dart:developer' as developer;
 
-class YaListTile extends StatelessWidget {
-  const YaListTile({
+class WListTile extends StatelessWidget {
+  const WListTile({
     Key key,
     @required this.listTileArgs,
     this.onTap,
@@ -33,8 +33,8 @@ class YaListTile extends StatelessWidget {
   }
 }
 
-class YaListView extends StatelessWidget {
-  const YaListView({Key key,
+class WListView extends StatelessWidget {
+  const WListView({Key key,
         @required this.listViewArgs,
         this.handleTap})
       : super(key: key);
@@ -56,9 +56,9 @@ class YaListView extends StatelessWidget {
 }
 
 /* args */
-List<YaListTile> _getListTiles(ListViewArgs listViewArgs, handleTap) {
+List<WListTile> _getListTiles(ListViewArgs listViewArgs, handleTap) {
   return listViewArgs.listTileArgs
-      .map((args) => YaListTile(
+      .map((args) => WListTile(
             listTileArgs: args,
             onTap: () => handleTap(args),
           ))
